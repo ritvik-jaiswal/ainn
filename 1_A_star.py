@@ -1,18 +1,17 @@
-#PQueue() functions
 class PQueue():
     def __init__(self):
         self.dict = {}
         self.keys = []
         self.sorted = False
-    #push fuction is used to push the keys into the stack with the given values. The push library is used
+
     def push(self, k, v):
         self.dict[k] = v
         self.sorted = False
-    #sort fuction is used to sort the keys with the given values. The sort library is used
+
     def _sort(self):
         self.keys = sorted(self.dict, key=self.dict.get, reverse=True)
         self.sorted = True
-    #pop fuction is used to pop the keys from the stack with the given values after sorting
+
     def pop(self):
         try:
             if not self.sorted:
@@ -23,8 +22,7 @@ class PQueue():
             return key, value
         except:
             return None
-# Heuristics function is used in uniform cost search and finds the most promissing path.
-# #It takes the current state of the agent as its input and produces the estimation of how close agent is from the goal.
+
 def heuristics(path):
     h = {}
     with open(path, 'r') as file:
